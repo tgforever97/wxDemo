@@ -15,8 +15,6 @@
 
 extern void testThread();
 
-IMPLEMENT_APP(BlueSideApp)
-
 bool BlueSideApp::OnInit() {
   //初始化
   std::cout << "Welcome to use BlueSide!" << std::endl;
@@ -25,6 +23,16 @@ bool BlueSideApp::OnInit() {
 //  testThread();
   return true;
 }
+
+#ifdef _WIN32
+int main() {
+  BlueSideApp *app = new BlueSideApp();
+  wxApp::SetInstance(app);
+  return wxEntry();
+}
+#else
+IMPLEMENT_APP(BlueSideApp);
+#endif
 
 //void BlueSideApp::switchPage(wxWindowID id) {
 //    if (this->IsActive()) {
