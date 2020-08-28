@@ -110,12 +110,11 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
     auto userImage = new wxImageList(30, 31, true, 1);
     userImage->Add(wxBitmap(_T("img/offMike.png"), wxBITMAP_TYPE_PNG));
     //    userImage->Add(wxBitmap(_T("img/test.png"), wxBITMAP_TYPE_PNG));
-    userListBox = new wxListView(this, wxID_ANY, wxDefaultPosition, wxSize(200, 500), wxLC_REPORT | wxLC_NO_HEADER | wxBORDER_NONE | wxLC_SINGLE_SEL);
+    userListBox = new wxListCtrl(this, wxID_ANY, wxDefaultPosition, wxSize(200, -1),
+                                 wxLC_REPORT | wxBORDER_NONE);
     userListBox->SetImageList(userImage, wxIMAGE_LIST_SMALL);
     userListBox->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
-    wxListItem column;
-    userListBox->InsertColumn(0, column);
-    userListBox->SetColumnWidth(0, 200);
+    userListBox->InsertColumn(0, "", wxLIST_FORMAT_LEFT, 200);
     wxListItem item1;
     item1.SetId(0);
     item1.SetImage(0);
@@ -132,7 +131,7 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
     listSizer->Add(userListLabel, 0, wxEXPAND | wxRIGHT | wxTOP, 10);
     listSizer->Add(-1, 10);
 
-    listSizer->Add(userListBox, 1, wxEXPAND | wxRIGHT | wxTOP, 10);
+    listSizer->Add(userListBox, 1, wxEXPAND | wxTOP, 10);
 
 
     meetingSizer->Add(listSizer, 1, wxEXPAND, 0);

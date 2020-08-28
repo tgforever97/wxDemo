@@ -71,7 +71,7 @@ protected:
     wxPanel* stateView;
     wxBitmapToggleButton* beSpeaker;
     wxBitmapButton* exitBtn;
-    wxListView* userListBox;
+    wxListCtrl* userListBox;
     wxSlider* volumnSlider;
 
     virtual void test(wxCommandEvent& event) { event.Skip(); }
