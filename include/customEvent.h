@@ -1,0 +1,8 @@
+//
+// Created by wang on 2020/7/7.
+//
+
+#ifndef WXTESTDEMO_CUSTOMEVENT_H
+#define WXTESTDEMO_CUSTOMEVENT_H
+
+#endif//WXTESTDEMO_CUSTOMEVENT_H
