@@ -107,10 +107,10 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
     listSizer = new wxBoxSizer(wxVERTICAL);
 
     listSizer->SetMinSize(wxSize(200, 500));
-    auto userImage = new wxImageList(40, 40, true, 1);
+    auto userImage = new wxImageList(30, 31, true, 1);
     userImage->Add(wxBitmap(_T("img/offMike.png"), wxBITMAP_TYPE_PNG));
     //    userImage->Add(wxBitmap(_T("img/test.png"), wxBITMAP_TYPE_PNG));
-    userListBox = new wxListView(this, wxID_ANY, wxDefaultPosition, wxSize(200, 500), wxLC_REPORT | wxLC_NO_HEADER | wxLC_SINGLE_SEL | wxBORDER_NONE);
+    userListBox = new wxListView(this, wxID_ANY, wxDefaultPosition, wxSize(200, 500), wxLC_REPORT | wxLC_NO_HEADER | wxBORDER_NONE | wxLC_SINGLE_SEL);
     userListBox->SetImageList(userImage, wxIMAGE_LIST_SMALL);
     userListBox->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
     wxListItem column;
