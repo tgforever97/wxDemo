@@ -110,12 +110,12 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
     auto userImage = new wxImageList(40, 40, true, 1);
     userImage->Add(wxBitmap(_T("img/offMike.png"), wxBITMAP_TYPE_PNG));
     //    userImage->Add(wxBitmap(_T("img/test.png"), wxBITMAP_TYPE_PNG));
-    userListBox = new wxListView(this, wxID_ANY, wxDefaultPosition, wxSize(200, 500), wxLC_ICON | wxLC_NO_HEADER | wxLC_SINGLE_SEL);
+    userListBox = new wxListView(this, wxID_ANY, wxDefaultPosition, wxSize(200, 500), wxLC_REPORT | wxLC_NO_HEADER | wxLC_SINGLE_SEL | wxBORDER_NONE);
     userListBox->SetImageList(userImage, wxIMAGE_LIST_SMALL);
     userListBox->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
     wxListItem column;
     userListBox->InsertColumn(0, column);
-    userListBox->SetColumnWidth(0, 170);
+    userListBox->SetColumnWidth(0, 200);
     wxListItem item1;
     item1.SetId(0);
     item1.SetImage(0);
