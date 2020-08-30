@@ -110,21 +110,14 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
     auto userImage = new wxImageList(30, 31, true, 1);
     userImage->Add(wxBitmap(_T("img/offMike.png"), wxBITMAP_TYPE_PNG));
     //    userImage->Add(wxBitmap(_T("img/test.png"), wxBITMAP_TYPE_PNG));
-    userListBox = new wxListCtrl(this, wxID_ANY, wxDefaultPosition, wxSize(200, -1),
+    userListBox = new wxListCtrl(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1),
                                  wxLC_REPORT | wxBORDER_NONE);
     userListBox->SetImageList(userImage, wxIMAGE_LIST_SMALL);
     userListBox->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
-    userListBox->InsertColumn(0, "", wxLIST_FORMAT_LEFT, 200);
-    wxListItem item1;
-    item1.SetId(0);
-    item1.SetImage(0);
-    item1.SetText(wxT("wangmengyuan"));
-    item1.SetData(100l);
-    userListBox->InsertItem(item1);
     userListBox->SetFont(wxFont(15, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString));
 
     auto userListLabel =
-            new wxStaticText(this, wxID_ANY, "麦下用户（0），麦上用户（0）", wxDefaultPosition,
+            new wxStaticText(this, wxID_ANY, "麦下用户（0", wxDefaultPosition,
                              wxDefaultSize, wxALIGN_CENTRE_HORIZONTAL);
     userListLabel->SetFont(
             wxFont(12, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_BOLD));
@@ -139,8 +132,17 @@ MeetingPage::MeetingPage(wxWindow *parent, wxWindowID id, const wxString &title,
 
     this->SetSizer(meetingSizer);
     this->Layout();
-
     this->Centre(wxBOTH);
+
+    auto usize = userListBox->GetSize();
+    std::cout << "size" << usize.GetWidth() << std::endl;
+    userListBox->InsertColumn(0, "", wxLIST_FORMAT_LEFT, usize.GetWidth());
+    wxListItem item1;
+    item1.SetId(0);
+    item1.SetImage(0);
+    item1.SetText(wxT("wangmengyuan@neotel.com.cn"));
+    item1.SetData(100l);
+    userListBox->InsertItem(item1);
     exitBtn->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MeetingPage::test),
                      NULL, this);
 }

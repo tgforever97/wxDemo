@@ -21,6 +21,7 @@
 #include <wx/imaglist.h>
 #include <wx/listbox.h>
 #include <wx/listctrl.h>
+//#include <wx/generic/listctrl.h>
 #include <wx/slider.h>
 #include <wx/panel.h>
 #include <wx/settings.h>
